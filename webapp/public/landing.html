@@ -1344,15 +1344,31 @@
         flex-direction: column;
         position: fixed;
         inset: 0;
-        background: var(--bg);
+        background: rgba(10, 8, 20, 0.97);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
         z-index: 100;
         justify-content: center;
         align-items: center;
-        gap: 28px;
+        gap: 36px;
       }
 
       .nav-links.open a {
-        font-size: 18px;
+        font-size: 22px;
+        color: rgba(255, 255, 255, 0.85) !important;
+        letter-spacing: 0.08em;
+      }
+
+      .nav-links.open a:hover {
+        color: #fff !important;
+      }
+
+      .nav-links.open .nav-cta {
+        background: var(--crimson) !important;
+        color: #fff !important;
+        padding: 14px 40px !important;
+        font-size: 14px !important;
+        border-radius: 8px;
       }
 
       .hero {
