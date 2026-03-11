@@ -524,17 +524,19 @@
       display: none;
       width: 240px;
       height: 240px;
+      border-radius: 50%;
+      object-fit: cover;
       filter: drop-shadow(0 0 40px rgba(196, 30, 58, 0.2));
       animation: mobile-spin 12s linear infinite, mobile-pulse 4s ease-in-out infinite;
     }
 
     @keyframes mobile-spin {
       from {
-        transform: rotate(0deg);
+        rotate: 0deg;
       }
 
       to {
-        transform: rotate(360deg);
+        rotate: 360deg;
       }
     }
 
@@ -542,12 +544,12 @@
 
       0%,
       100% {
-        transform: scale(1) rotate(var(--current-rot, 0deg));
+        scale: 1;
         opacity: 0.9;
       }
 
       50% {
-        transform: scale(1.05) rotate(var(--current-rot, 0deg));
+        scale: 1.05;
         opacity: 1;
         filter: drop-shadow(0 0 60px rgba(196, 30, 58, 0.4));
       }
