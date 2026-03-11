@@ -1,0 +1,428 @@
+Page 1
+AXON — Unified Multi-Specialist AI Hub  |  AntigravityAI Claude Opus 4.6
+AX
+G LIVE — ANTIGRAVITYAI CLAUDE OPUS 4.6
+AXON
+Unified Multi-Specialist AI Hub
+"One platform. Every expert. Zero tool fatigue."
+PROJECT TYPE
+Full-Stack SaaS AI Platform
+AI MODEL
+AntigravityAI — Claude Opus 4.6
+VERSION
+MVP 1.0
+MODULES
+AI Hub  ·  Photo Studio  ·  Video Studio
+TIMELINE
+18 Weeks (5 Phases)
+STATUS
+Ready for Development
+
+Page 2
+AXON — Unified Multi-Specialist AI Hub  |  AntigravityAI Claude Opus 4.6
+G 01
+What We Are Building
+AXON is a single unified web platform where any user — from a small business owner to an enterprise team —
+can access deep AI expertise and generate professional creative media without switching tools.
+01
+Ask any question
+Automatically routed to the right AI specialist model
+02
+Generate Photos
+In 2–3 steps with templates, or full scratch studio
+03
+Generate Videos
+In 2–3 steps with templates, or full scratch studio
+04
+One Dashboard
+All outputs, history, projects — no tool switching
+G 02
+Platform Modules
+I MODULE 1 — AI Specialist Hub
+I Universal chat input — single search-bar style interface
+I Smart intent router — NLP classifier detects domain automatically
+I 6 specialists: Legal · Coding · Finance · Medical · Creative · General
+I Confidence badge shown on every response ("Routing to Legal AI — 94%")
+I Multi-domain split response for cross-discipline queries
+I Session memory with multi-turn conversations (Redis)
+I File upload: PDF, images, code files
+I Export response as PDF / DOCX / copy to clipboard
+I "Send to Photo/Video Studio" button on any AI response
+
+Page 3
+AXON — Unified Multi-Specialist AI Hub  |  AntigravityAI Claude Opus 4.6
+I MODULE 2 — Photo Studio
+I QUICK MODE: 160+ pre-built templates — Product, Social, Business, Creative
+I QUICK MODE: 2–3 step fill-in UI with upload swap & style picker
+I QUICK MODE: 4 variations generated simultaneously
+I SCRATCH MODE: Positive + negative prompt editor with AI assist
+I SCRATCH MODE: Model selector — SDXL, Flux Pro, DALL·E 3, Custom
+I SCRATCH MODE: ControlNet (pose, depth, edge, face landmark)
+I SCRATCH MODE: Inpainting · Outpainting · Image-to-Image
+I SCRATCH MODE: Batch generation, upscale to 4K, background removal
+I MODULE 3 — Video Studio
+I QUICK MODE: 130+ pre-built video templates — Ads, Avatar, Business, Social
+I QUICK MODE: Auto music + voiceover from typed script
+I SCRATCH MODE: Multi-scene builder (unlimited scenes)
+I SCRATCH MODE: Per-scene visual prompt, motion, duration, transition
+I SCRATCH MODE: Video model selector — CogVideoX, Wan2.1, Kling, Runway
+I SCRATCH MODE: Full audio studio — AI music, voiceover, SFX, upload
+I SCRATCH MODE: Color grading, visual effects, text overlays, timeline
+I Talking avatar, Image-to-video, Smart suggestions system
+I MODULE 4 — User System
+I Auth: Sign up / Login / OAuth (Google, GitHub) via Clerk
+I Dashboard: usage stats, recent projects, quick start
+I Projects: save, organize, rename, delete
+I Generation history — every photo & video ever made
+I Team workspace (Business / Enterprise plans)
+I API key management & usage metering
+
+Page 4
+AXON — Unified Multi-Specialist AI Hub  |  AntigravityAI Claude Opus 4.6
+I MODULE 5 — Billing
+I 5 pricing tiers: Free · Creator · Pro · Studio · Enterprise
+I Stripe subscription integration + usage-based API billing
+I Invoice history, plan upgrade/downgrade, Stripe billing portal
+
+Page 5
+AXON — Unified Multi-Specialist AI Hub  |  AntigravityAI Claude Opus 4.6
+G 03
+Technical Stack
+Layer
+Technology
+Purpose
+Frontend
+Next.js 14, TypeScript, Tailwind CSS
+UI, routing, SSR
+State
+Zustand + React Query
+Global state & caching
+Animation
+Framer Motion
+UI transitions
+Auth UI
+Clerk
+Auth components
+Backend
+FastAPI (Python)
+REST API server
+Database
+PostgreSQL via Supabase
+Primary data store
+Cache
+Redis (Upstash)
+Sessions, job queue
+Queue
+Celery + Redis
+Async generation jobs
+Storage
+AWS S3 + CloudFront CDN
+Media delivery
+LLM
+AntigravityAI — Claude Opus 4.6
+All specialist responses
+Router
+Fine-tuned RoBERTa
+Intent classification
+Image Gen
+SDXL 1.0, Flux Pro, DALL·E 3
+Photo generation
+Video Gen
+CogVideoX, Wan2.1, Kling AI
+Video generation
+Upscale
+Real-ESRGAN
+2×/4× upscaling
+BG Remove
+BiRefNet / REMBG
+Background removal
+Avatar
+SadTalker + Wav2Lip
+Talking avatar
+TTS
+ElevenLabs API
+AI voiceover
+Music
+MusicGen (Meta) / Suno
+Background music
+GPU
+RunPod / Lambda Labs A100
+Model inference
+Payments
+Stripe
+Subscriptions & billing
+Deploy FE
+Vercel
+Frontend hosting
+Deploy BE
+Railway / AWS ECS
+Backend hosting
+
+Page 6
+AXON — Unified Multi-Specialist AI Hub  |  AntigravityAI Claude Opus 4.6
+G 04
+API Endpoints
+I AI Specialist
+POST /api/chat/message → Send query, get routed response
+GET /api/chat/history/:id → Get conversation history
+POST /api/chat/detect-intent → Run classifier on input
+DELETE /api/chat/:id → Clear conversation
+I Photo Generation
+POST /api/photo/generate → Generate from prompt
+POST /api/photo/template → Generate from template
+POST /api/photo/inpaint → Edit specific area
+POST /api/photo/outpaint → Expand image in any direction
+POST /api/photo/img2img → Transform reference image
+POST /api/photo/upscale → Upscale to 4K
+POST /api/photo/remove-bg → Remove background
+GET /api/photo/status/:job_id → Check generation status
+I Video Generation
+POST /api/video/generate → Generate from scenes
+POST /api/video/template → Generate from template
+POST /api/video/img2video → Animate still image
+POST /api/video/avatar → Talking avatar
+POST /api/video/voiceover → Generate voiceover
+POST /api/video/music → Generate background music
+GET /api/video/status/:job_id → Check render status
+I User & Billing
+GET /api/user/profile → Get user data
+PUT /api/user/profile → Update profile
+GET /api/user/usage → Get usage stats
+POST /api/billing/subscribe → Create subscription
+POST /api/billing/portal → Stripe billing portal
+
+Page 7
+AXON — Unified Multi-Specialist AI Hub  |  AntigravityAI Claude Opus 4.6
+GET /api/billing/invoices → Get invoice history
+
+Page 8
+AXON — Unified Multi-Specialist AI Hub  |  AntigravityAI Claude Opus 4.6
+G 05
+Database Schema
+Table
+Fields
+users
+id, email, name, avatar, plan, credits, created_at, updated_at
+projects
+id, user_id, title, type (photo/video/chat), status, created_at
+generations
+id, user_id, project_id, type, prompt, model_used, output_url, metadata,
+tokens_used, created_at
+conversations
+id, user_id, specialist, messages (JSON), created_at, updated_at
+templates
+id, category, name, type, thumbnail_url, fields (JSON), is_premium, usage_count
+subscriptions
+id, user_id, plan, stripe_id, status, current_period_end
+api_keys
+id, user_id, key_hash, name, last_used, usage_count
+G 06
+Screens & Pages
+Route
+Page
+Auth
+/
+Landing — hero, features, pricing
+Public
+/pricing
+Pricing page
+Public
+/templates
+Template gallery (browse)
+Public
+/login
+Sign in
+Public
+/signup
+Register
+Public
+/dashboard
+Home: recent work, usage, quick start
+Required
+/chat
+AI Specialist Hub
+Required
+/studio/photo
+Photo Studio (Quick + Scratch)
+Required
+/studio/video
+Video Studio (Quick + Scratch)
+Required
+/projects
+All saved projects
+Required
+/history
+Generation history
+Required
+/settings
+Account, API keys, preferences
+Required
+
+Page 9
+AXON — Unified Multi-Specialist AI Hub  |  AntigravityAI Claude Opus 4.6
+/billing
+Plan, usage, invoices
+Required
+/docs
+Developer API documentation
+Public
+
+Page 10
+AXON — Unified Multi-Specialist AI Hub  |  AntigravityAI Claude Opus 4.6
+G 07
+Development Phases
+#
+Phase
+Duration
+Key Deliverables
+1
+Foundation
+Weeks 1–3
+Next.js setup · FastAPI · Auth (Clerk) · DB
+schema · Landing page
+2
+AI Specialist Hub
+Weeks 4–6
+Claude Opus 4.6 integration · Intent router · 6
+specialist prompts · Chat UI · Session memory
+3
+Photo Studio
+Weeks 7–10
+SDXL/Flux API · 20 Quick templates · Scratch
+editor · ControlNet · Inpaint · S3 storage
+4
+Video Studio
+Weeks
+11–15
+CogVideoX/Wan2.1 · 15 Quick templates ·
+Scene builder · ElevenLabs · MusicGen · Avatar
+5
+Billing & Launch
+Weeks
+16–18
+Stripe integration · Usage tracking · API keys ·
+Performance tuning · Beta · Production deploy
+G 08
+Monthly Infrastructure Cost
+Service
+Monthly Cost (USD)
+Notes
+GPU Compute (RunPod A100s)
+$800 – $2,000
+Image & video rendering
+ElevenLabs TTS
+$99 – $330
+Voiceover generation
+Kling / Runway Video API
+$200 – $500
+Video generation
+AWS S3 + CloudFront CDN
+$50 – $150
+Media storage & delivery
+Supabase (PostgreSQL)
+$25 – $100
+Database
+Redis (Upstash)
+$10 – $30
+Cache & job queue
+Vercel (Frontend)
+$20 – $50
+Frontend hosting
+Clerk (Auth)
+$25 – $100
+Authentication
+Stripe Fees
+2.9% + $0.30/txn
+Payment processing
+TOTAL (MVP)
+~$1,500 – $3,500 / mo
+Scales with usage
+
+Page 11
+AXON — Unified Multi-Specialist AI Hub  |  AntigravityAI Claude Opus 4.6
+G 09
+Pricing Plans
+Plan
+Price/mo
+Photos
+Videos
+Target
+Free
+$0
+10
+2
+Try the platform
+Creator
+$29
+200
+30
+Freelancers & creators
+Pro
+$79
+1,000
+150
+Growing businesses
+Studio
+$199
+Unlimited
+Unlimited
+Agencies & power users
+Enterprise
+Custom
+Unlimited
+Unlimited
+Large teams & on-prem
+
+Page 12
+AXON — Unified Multi-Specialist AI Hub  |  AntigravityAI Claude Opus 4.6
+G 10
+Key Notes for AntigravityAI Dev Team
+N PRIMARY AI MODEL
+Use AntigravityAI Claude Opus 4.6 for ALL specialist chat responses across every domain.
+N ROUTING LOGIC
+Build the intent classifier as a separate lightweight service (fine-tuned RoBERTa). Claude Opus 4.6
+handles the RESPONSE after routing is decided — not the classification.
+N PROMPT ENHANCEMENT
+User types a simple description → Claude Opus 4.6 expands it into a professional generation prompt →
+send the enhanced prompt to the image/video API.
+N MEDIA GENERATION
+Use external APIs (SDXL, Wan2.1, ElevenLabs) for actual media generation. Claude Opus 4.6 writes and
+enhances prompts before sending to those APIs.
+N CONTEXT MEMORY
+Store full conversation in Redis. Pass last 10 turns to Claude on each call. This enables multi-turn expert
+conversations ("Now add an arbitration clause to that NDA").
+N CROSS-MODULE FLOW
+"Send to Studio" button on any AI response should pre-fill the studio prompt with the relevant content (e.g.
+legal text → video script auto-filled).
+G SUCCESS METRICS
+MVP Goals
+Metric
+Target
+Type
+
+Page 13
+AXON — Unified Multi-Specialist AI Hub  |  AntigravityAI Claude Opus 4.6
+Photo generation speed
+< 15 seconds
+Technical
+Video generation speed
+< 90 seconds
+Technical
+Chat response time
+< 3 seconds
+Technical
+Platform uptime
+99.5%
+Technical
+Beta users — Month 1
+100 users
+Business
+Registered users — Month 3
+500 users
+Business
+MRR target — Month 6
+$5,000
+Business
+This document is the complete specification for AntigravityAI (Claude Opus 4.6) to build the AXON platform.
+All modules, flows, APIs, database schemas, and development phases are fully defined above.
+Ready to build? Let's go. I
